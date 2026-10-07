@@ -14,9 +14,15 @@ export default function App() {
       { name: "My Blog", url: "#" },
       { name: "GeeksforGeeks", url: "#" }
     ],
-    memberships: [
-      { name: "IEEE Student Membership", number: "Add Number Here" },
-      { name: "ACM Student Membership", number: "Add Number Here" }
+    projects: [
+      {
+        title: "Haven Platform",
+        description: "A comprehensive legal aid web application providing accessible resources, complaint generation, and automated assistance tools. Designed with responsive UI components for intuitive user navigation during emergency legal queries."
+      },
+      {
+        title: "Nebula Striker",
+        description: "An interactive arcade space shooter game integrated with custom hardware controls using an Arduino microcontroller. Features real-time audio effects, dynamic enemy spawning, and responsive joystick handling."
+      }
     ]
   };
 
@@ -57,14 +63,21 @@ export default function App() {
           </div>
         </section>
 
-        {/* Memberships Section */}
+        {/* Featured Projects Section */}
         <section>
-          <h2 className="text-xl font-semibold text-slate-300 mb-4">Memberships</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {profile.memberships.map((item, idx) => (
-              <div key={idx} className="p-4 bg-slate-800/30 border border-slate-800 rounded-xl">
-                <p className="text-sm font-medium text-slate-300">{item.name}</p>
-                <p className="text-xs text-slate-500 mt-1">{item.number}</p>
+          <h2 className="text-xl font-semibold text-slate-300 mb-4">Featured Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {profile.projects.map((project, idx) => (
+              <div 
+                key={idx} 
+                className="p-5 bg-slate-800/40 border border-slate-700/50 rounded-xl flex flex-col justify-between hover:border-indigo-500/50 transition-colors"
+              >
+                <div>
+                  <h3 className="text-lg font-bold text-indigo-300">{project.title}</h3>
+                  <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
